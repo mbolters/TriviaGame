@@ -1,0 +1,22 @@
+body {
+    background-image: url(../images/milky-way-2695569_960_720.jpg);
+    background-size: cover;                   
+    background-repeat: no-repeat;
+}
+#mainContainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 800px;
+    width: 1000px;
+    background-image: url(../images/moving-stars-on-black-background_41x3vg3x__F0000.png);
+  }
+.font {
+    font-family: OCR A Std, monospace;
+    text-align: center;
+    color: white;
+}
+.cntrsmall {
+
+}
