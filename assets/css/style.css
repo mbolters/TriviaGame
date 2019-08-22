@@ -18,5 +18,10 @@ body {
     color: white;
 }
 .cntrsmall {
+    background-color: purple;
+    z-index: 100;
+    position: relative;
+    width: 250px;
+    height: 600px;
 
 }
