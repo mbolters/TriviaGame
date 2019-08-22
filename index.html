@@ -6,9 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- CSS -->
     <link rel = "stylesheet" href= "assets/css/style.css">
-    <!-- Javascript/jQuery -->
-    <script type = "text/Javascript" src = "assets/javascript/app.js"></script>
-    <script src="jquery-3.4.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     
@@ -31,8 +29,7 @@
             -1 results in correct screen
             -3 result in incorrect screen
             -add to final score
-        -questions
-            -populate with matching answer options
+
         -buttons
             -start button begins timers 
             -play again butten sends you to start of screen-->
@@ -49,27 +46,21 @@
         <div class= "container cntrsmall font ">
             <div class= "row">
                 <div class= "col-md-12 text-center timer">
-                    <br>
                     this is where the timer goes
-                </div>
-                <div class="col-md-12 text-center question">
-                    <br>
+                </div> 
+                <div class="col-md-12 text-center" id="question">
                     this is where the question goes
                 </div>
-                <div class="col-md-12 text-center answerOne">
-                    <br>
+                <div class="col-md-12 text-center" id= "answerOne">
                     this is where answer 1 goes
                 </div>
-                <div class="col-md-12 text-center answerTwo">
-                    <br>
+                <div class="col-md-12 text-center" id= "answerTwo">
                     this is where answer 2 goes
                 </div>
-                <div class="col-md-12 text-center answerThree">
-                    <br>
+                <div class="col-md-12 text-center" id= "answerThree">
                     this is where answer 3 goes
                 </div>
-                <div class="col-md-12 text-center answerFour">
-                    <br>
+                <div class="col-md-12 text-center" id= "answerFour">
                     this is where answer 4 goes
                 </div>
             </div>
@@ -78,7 +69,10 @@
     </div>
 
 
+    <!-- Javascript/jQuery -->
+    <script src = "assets/javascript/app.js"></script>
 
 
 </body>
+
 </html>

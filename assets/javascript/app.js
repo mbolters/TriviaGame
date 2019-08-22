@@ -1,4 +1,5 @@
 // objects for questions and answers in an array
+$(document).ready(function(){
 
 let questions = [
     {
@@ -28,3 +29,16 @@ let questions = [
     }
 ];
 
+function populateTrivia(n) {
+
+    $("#question").text(questions[n].question);
+    $("#answerOne").text(questions[n].answers[0]);
+    $("#answerTwo").text(questions[n].answers[1]);
+    $("#answerThree").text(questions[n].answers[2]);
+    $("#answerFour").text(questions[n].answers[3]);
+};
+populateTrivia(0);
+
+});
+
+// document.getElementById ("guessedWord").textContent = guessedWord ; 
