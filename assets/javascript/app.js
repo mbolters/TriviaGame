@@ -1,5 +1,4 @@
 // objects for questions and answers in an array
-$(document).ready(function(){
 
 let questions = [
     {
@@ -28,17 +27,37 @@ let questions = [
     correctAnswer: 2   
     }
 ];
+let currQustion = -1;
 
-function populateTrivia(n) {
-
-    $("#question").text(questions[n].question);
-    $("#answerOne").text(questions[n].answers[0]);
-    $("#answerTwo").text(questions[n].answers[1]);
-    $("#answerThree").text(questions[n].answers[2]);
-    $("#answerFour").text(questions[n].answers[3]);
+function reset() {
+    currQustion++;
+    // WE ARE POPULATING QUESTION N
+    $("#question").text(questions[currQustion].question);
+    $("#answerOne").text(questions[currQustion].answers[0]);
+    $("#answerTwo").text(questions[currQustion].answers[1]);
+    $("#answerThree").text(questions[currQustion].answers[2]);
+    $("#answerFour").text(questions[currQustion].answers[3]);
 };
-populateTrivia(0);
 
-});
+reset();
 
-// document.getElementById ("guessedWord").textContent = guessedWord ; 
+function answer (answerNumber){
+    if(questions[currQustion].correctAnswer === answerNumber){
+        // Correct Answer selected
+        console.log("correct");
+
+    } else {
+        // wrong answer
+        console.log("incorrect");
+
+
+    }
+    reset();
+}
+
+$("#answerOne").click(function(){   answer(1) });
+$("#answerTwo").click(function(){   answer(2) });
+$("#answerThree").click(function(){ answer(3) });
+$("#answerFour").click(function(){  answer(4) });
+
+
