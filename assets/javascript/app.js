@@ -29,6 +29,27 @@ let questions = [
 ];
 let currQustion = -1;
 
+/*timer {
+
+    when time is up
+    same logic as if a wrong answer was sellected
+    stop when answer selected
+    or show correct answer when out of time
+    mark out of time as unanswered
+}*/
+
+var counter = 5;
+var interval = setInterval(function() {
+    $(".timer").text(counter);
+    counter--;
+    console.log(counter);
+    if (counter == 0) {
+        clearInterval(interval);
+
+    }
+}, 1000);
+
+
 function reset() {
     currQustion++;
     // WE ARE POPULATING QUESTION N
@@ -42,22 +63,33 @@ function reset() {
 reset();
 
 function answer (answerNumber){
+    
     if(questions[currQustion].correctAnswer === answerNumber){
-        // Correct Answer selected
-        console.log("correct");
-
+        //correct answer
+        $('#question').text("Correct!");
+        $("#answerOne").text("");
+        $("#answerTwo").text("");
+        $("#answerThree").text("");
+        $("#answerFour").text("");
+        setTimeout(reset, 1000 *3);
+      
     } else {
         // wrong answer
-        console.log("incorrect");
-
+        $("#question").text("Incorrect!");
+        $("#answerOne").text(" The correct answer was: "+ questions[currQustion].correctAnswer);
+        $("#answerTwo").text("");
+        $("#answerThree").text("");
+        $("#answerFour").text("");
+        setTimeout(reset, 1000 * 3);
+        
 
     }
-    reset();
+
 }
 
-$("#answerOne").click(function(){   answer(1) });
-$("#answerTwo").click(function(){   answer(2) });
-$("#answerThree").click(function(){ answer(3) });
-$("#answerFour").click(function(){  answer(4) });
+$("#answerOne").click(function(){answer(1) });
+$("#answerTwo").click(function(){answer(2) });
+$("#answerThree").click(function(){answer(3) });
+$("#answerFour").click(function(){answer(4) });
 
 

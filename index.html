@@ -25,13 +25,15 @@
             -add to final score
             -reset at each question
         -answers
-            -4 clickable answers
             -1 results in correct screen
             -3 result in incorrect screen
             -add to final score
+            -out of questions/results screen
         -buttons
             -start button begins timers 
-            -play again butten sends you to start of screen-->
+            -play again butten sends you to start of screen
+        -BONUS
+            -randomize questions-->
 <body>
     <div class="container" id="mainContainer">
     
@@ -47,19 +49,27 @@
                 <div class= "col-md-12 text-center timer">
                     this is where the timer goes
                 </div> 
-                <div class="col-md-12 text-center" id="question">
+                <div class="col-md-12 text-center correct incorrect" id="question">
                     this is where the question goes
                 </div>
-                <div class="col-md-12 text-center" id= "answerOne">
+                <br>
+                <br>
+                <div class="col-md-12 text-center correctAnswer" id= "answerOne">
                     this is where answer 1 goes
                 </div>
-                <div class="col-md-12 text-center" id= "answerTwo">
+                <br>
+                <br>
+                <div class="col-md-12 text-center photo" id= "answerTwo">
                     this is where answer 2 goes
                 </div>
-                <div class="col-md-12 text-center" id= "answerThree">
+                <br>
+                <br>
+                <div class="col-md-12 text-center hide" id= "answerThree">
                     this is where answer 3 goes
                 </div>
-                <div class="col-md-12 text-center" id= "answerFour">
+                <br>
+                <br>
+                <div class="col-md-12 text-center hide" id= "answerFour">
                     this is where answer 4 goes
                 </div>
             </div>
