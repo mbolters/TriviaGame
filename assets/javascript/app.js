@@ -27,65 +27,94 @@ let questions = [
     correctAnswer: 2   
     }
 ];
-let currQustion = -1;
+let currQuestion = -1;
 
 /*timer {
-
-    when time is up
-    same logic as if a wrong answer was sellected
-    stop when answer selected
-    or show correct answer when out of time
     mark out of time as unanswered
 }*/
 
-var counter = 5;
-var interval = setInterval(function() {
-    $(".timer").text(counter);
-    counter--;
-    console.log(counter);
-    if (counter == 0) {
-        clearInterval(interval);
+// BUGS:
+// - timer start is longer than one second
+// - you can still click answer boxes when they arent visible
+// - hide start button after you start the game
+// - array keeps going
 
+let correctScore = 0;
+let incorrectScore = 0;
+let unanswered = 0;
+
+let counter = 5;
+let interval;
+
+let timer = function(){
+    interval= setInterval(function () {
+        $(".timer").text("Time Remaining: " + counter);
+        if (--counter === -1) {
+            $(".timer").text("You're out of time!");
+            clearInterval(interval);
+            reset();
+            $("#answerOne").text(" The correct answer was: "+ questions[currQuestion].correctAnswer);
+            unanswered++;
+        }
+        }, 1000);
     }
-}, 1000);
 
+function nextQuestion() {
+    currQuestion++;
+    if (currQuestion < questions.length){
+        $("#question").text(questions[currQuestion].question);
+        $("#answerOne").text(questions[currQuestion].answers[0]);
+        $("#answerTwo").text(questions[currQuestion].answers[1]);
+        $("#answerThree").text(questions[currQuestion].answers[2]);
+        $("#answerFour").text(questions[currQuestion].answers[3]);
+        clearInterval(interval);
+        timer();
+        $(".timer").text("Time Remaining: " + counter);
+    }else {
+        end();
+    }
 
-function reset() {
-    currQustion++;
-    // WE ARE POPULATING QUESTION N
-    $("#question").text(questions[currQustion].question);
-    $("#answerOne").text(questions[currQustion].answers[0]);
-    $("#answerTwo").text(questions[currQustion].answers[1]);
-    $("#answerThree").text(questions[currQustion].answers[2]);
-    $("#answerFour").text(questions[currQustion].answers[3]);
-};
+}
 
-reset();
+nextQuestion();
 
 function answer (answerNumber){
-    
-    if(questions[currQustion].correctAnswer === answerNumber){
+    clearInterval(interval);
+    if(questions[currQuestion].correctAnswer === answerNumber){
         //correct answer
         $('#question').text("Correct!");
-        $("#answerOne").text("");
-        $("#answerTwo").text("");
-        $("#answerThree").text("");
-        $("#answerFour").text("");
-        setTimeout(reset, 1000 *3);
-      
+        reset();
+        correctScore++;
+
     } else {
         // wrong answer
         $("#question").text("Incorrect!");
-        $("#answerOne").text(" The correct answer was: "+ questions[currQustion].correctAnswer);
-        $("#answerTwo").text("");
-        $("#answerThree").text("");
-        $("#answerFour").text("");
-        setTimeout(reset, 1000 * 3);
-        
+        reset();
+        $("#answerOne").text(" The correct answer was: "+ questions[currQuestion].correctAnswer); 
+        incorrectScore++;
 
     }
 
 }
+
+function reset (){
+    $("#answerOne").text("");
+    $("#answerTwo").text("");
+    $("#answerThree").text("");
+    $("#answerFour").text("");
+    setTimeout(nextQuestion, 1000 *3);
+    counter = 5;
+}
+
+function end (){
+    $("#question").text("All Done! How did you do?");
+    $("#answerOne").text("Correct Answers: " + correctScore);
+    $("#answerTwo").text("Incorrect Answers: " + incorrectScore);
+    $("#answerThree").text("Unanswered: " + unanswered);
+    $("#answerFour").text("");
+    $(".timer").text("Time Remaining: " + counter);
+}
+
 
 $("#answerOne").click(function(){answer(1) });
 $("#answerTwo").click(function(){answer(2) });
