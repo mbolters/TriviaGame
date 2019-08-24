@@ -26,9 +26,12 @@ body {
     height: 600px;
 
 }
-.photo{
-
-}
-.hide{
-    
+#startBtn {
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    width: 200px;
+    height: 100px;
+    line-height: 4;
+    z-index: 100;
 }

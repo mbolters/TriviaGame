@@ -14,16 +14,7 @@
 </head>
 
 <!-- To DO 
-    - STYLING
-        -answers page: time left, correct/incorrect/timeout, correct answer, image/gif
-        -ending page: time left, finished message, #correct/#incorrect/#unanswered, Start Over button
     - CODING
-        -timers
-            -start with start button on each question
-            -show how much time was left after answering
-            -show answer when time out
-            -add to final score
-            -reset at each question
         -answers
             -1 results in correct screen
             -3 result in incorrect screen
@@ -33,46 +24,40 @@
             -start button begins timers 
             -play again butten sends you to start of screen
         -BONUS
-            -randomize questions-->
+            -randomize questions
+            -gifs -->
 <body>
     <div class="container" id="mainContainer">
     
         <h1 class="display-4 font">Star Trivia Extravaganza!</h1>
         <div class="row">
             <div class="col text-center">
-                <a class="btn btn-primary btn-lg font" href="#" role="button">Start!</a>
             </div>
         </div>
         <br>
         <div class= "container cntrsmall font ">
             <div class= "row">
+                <a class="btn btn-primary btn-lg font" id= "startBtn" href="#" role="button">Start!</a>
                 <div class= "col-md-12 text-center timer">
                 </div> 
                 <br>
                 <br>
-                <div class="col-md-12 text-center correct incorrect" id="question">
-                    this is where the question goes
-                </div>
+                <div class="col-md-12 text-center" id="question"></div>
                 <br>
                 <br>
-                <div class="col-md-12 text-center correctAnswer" id= "answerOne">
-                    this is where answer 1 goes
-                </div>
+                <div class="col-md-12 text-center" id= "answerOne"></div>
                 <br>
                 <br>
-                <div class="col-md-12 text-center photo" id= "answerTwo">
-                    this is where answer 2 goes
-                </div>
+                <div class="col-md-12 text-center" id= "answerTwo"> </div>
                 <br>
                 <br>
-                <div class="col-md-12 text-center hide" id= "answerThree">
-                    this is where answer 3 goes
-                </div>
+                <div class="col-md-12 text-center" id= "answerThree"></div>
                 <br>
                 <br>
-                <div class="col-md-12 text-center hide" id= "answerFour">
-                    this is where answer 4 goes
-                </div>
+                <div class="col-md-12 text-center" id= "answerFour"> </div>
+                <br>
+                <br>
+                <div class= "col-md-12 text-center" id= "startOver"></div>
             </div>
 
         </div>
