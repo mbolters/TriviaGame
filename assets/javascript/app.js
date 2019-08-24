@@ -28,11 +28,12 @@ let questions = [
     }
 ];
 let currQuestion = -1;
+const timePerQuestion = 30;
 let correctScore = 0;
 let incorrectScore = 0;
 let unanswered = 0;
 let clickable = false;
-let counter = 5;
+let counter = timePerQuestion;
 let interval;
 
 
@@ -43,7 +44,6 @@ function timer(){
             $(".timer").text("You're out of time!");
             clearInterval(interval);
             reset();
-            //$("#answerOne").text(" The correct answer was: "+ questions[currQuestion].correctAnswer);
             $("#answerOne").text(" The correct answer was: "+ questions[currQuestion].answers[questions[currQuestion].correctAnswer -1]);
             unanswered++;
         }else{
@@ -100,8 +100,8 @@ function reset (){
     $("#answerTwo").text("");
     $("#answerThree").text("");
     $("#answerFour").text("");
-    setTimeout(nextQuestion, 1000 *3);
-    counter = 5;
+    setTimeout(nextQuestion, 1000 *2);
+    counter = timePerQuestion;
 }
 
 function end (){
@@ -111,7 +111,7 @@ function end (){
     $("#answerThree").text("Unanswered: " + unanswered);
     $("#answerFour").text("");
     $(".timer").text("Time Remaining: " + counter);
-    $("#startOver").append("<a class= \"btn btn-primary btn-lg font\" href=\"#\" role=\"button\">Start Over!</a>");  
+    $("#startOver").append("<a class= \"btn btn-primary btn-lg font\" id = \"startOverBtn\" href=\"#\" role=\"button\">Start Over!</a>");  
     correctScore = 0;
     incorrectScore = 0;
     unanswered = 0;
@@ -120,7 +120,7 @@ function end (){
 
 $("#startOver").on("click", function(){
     nextQuestion(); 
-    $('#startOver').remove()
+    $('#startOverBtn').remove()
 });
 
 
