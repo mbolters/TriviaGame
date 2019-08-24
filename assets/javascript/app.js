@@ -2,29 +2,29 @@
 
 let questions = [
     {
-    question: "How much do i love you",
-    answers: ["Tons", "Alot", "A bunch", "oodles"],
+    question: "What is the most common type of star found in the Milky Way?",
+    answers: ["Brown Dwarf", "Red dwarf", "Blue Giant", "Red Giant"],
     correctAnswer: 2
     },
     {
-    question: "who is my favorite person",
-    answers: ["You", "My Bebe", "Marie", "My Baby"],
+    question: "What is the closest star to the Sun?",
+    answers: ["Spica", "Vega", "Proxima", "Rigel"],
     correctAnswer: 3
     },
     {
-    question: "Where is my favorite place",
-    answers: ["Next to you", "With you", "Anywhere you are", "Where ever you wanna be"],
-    correctAnswer: 1
-    },
-    {
-    question: "question 4",
-    answers: ["answer1", "answer2", "answer3", "answer4"],
+    question: "What is the brightest star that can be seen in Earth's night sky?",
+    answers: ["Regulus", "Sol", "Polaris", "Sirius"],
     correctAnswer: 4
     },
     {
-    question: "question 5",
-    answers: ["answer1", "answer2", "answer3", "answer4"],
-    correctAnswer: 2   
+    question: "How are new stars born?",
+    answers: ["From colliding comets", "No one knows", "They appear from thin air", "From clouds of gas and dust"],
+    correctAnswer: 4
+    },
+    {
+    question: "What is a binary system?",
+    answers: ["Two stars which orbit a common center of gravity ", "A star with two centers of gravity", "Two stars which appear close together in the sky", "Two stars in the same constellation"],
+    correctAnswer: 1   
     }
 ];
 let currQuestion = -1;
@@ -43,7 +43,8 @@ function timer(){
             $(".timer").text("You're out of time!");
             clearInterval(interval);
             reset();
-            $("#answerOne").text(" The correct answer was: "+ questions[currQuestion].correctAnswer);
+            //$("#answerOne").text(" The correct answer was: "+ questions[currQuestion].correctAnswer);
+            $("#answerOne").text(" The correct answer was: "+ questions[currQuestion].answers[questions[currQuestion].correctAnswer -1]);
             unanswered++;
         }else{
             $(".timer").text("Time Remaining: " + counter);
@@ -85,7 +86,7 @@ function answer (answerNumber){
             // wrong answer
             $("#question").text("Incorrect!");
             reset();
-            $("#answerOne").text(" The correct answer was: "+ questions[currQuestion].correctAnswer); 
+            $("#answerOne").text(" The correct answer was: "+ questions[currQuestion].answers[questions[currQuestion].correctAnswer -1]);
             incorrectScore++;
 
         }
